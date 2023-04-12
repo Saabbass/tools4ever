@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     require 'database.php';
 
     //de sql query
@@ -25,6 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
@@ -46,9 +47,9 @@
             <td><?php echo $tool["tool_id"] ?></td>
             <td><?php echo $tool["tool_name"] ?></td>
             <td><?php echo $tool["tool_category"] ?></td>
-            <td><?php echo $tool["tool_price"] ?></td>
+            <td>&euro; <?php echo $tool["tool_price"] ?></td>
             <td><?php echo $tool["tool_brand"] ?></td>
-            <td><a href="tools-detail.php">verdere info</a></td>
+            <td><a href="tools-detail.php?id=<?php echo $tool['tool_id']?>">verdere info</a></td>
         </tbody>
         <?php endforeach; ?>
 
