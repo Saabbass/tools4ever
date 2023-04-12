@@ -53,5 +53,15 @@ label{
 }
 
 input{
-    
+
+}
+
+button{
+    color: rgb(47, 47, 47);
+    background-color: rgb(255, 222, 123);
+    transition: all 0.5s ease;
+}
+
+button:hover{
+    background-color: rgb(252, 250, 245);
 }

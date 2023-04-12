@@ -9,36 +9,29 @@
 </head>
 <body>
     <!-- action en method zijn atributen -->
-    <form action="submit" method="post">
+    <form action="verwerk-nieuw-product.php" method="post">
         <h1>Maak een nieuw product aan</h1>
 
         
         <div class="form-group">
             <!-- for="" is voor het drukken op de naam / label, dan wordt de input automatisch aangetikt -->
         <label for="naamProduct">Naam product</label>
-        <input type="text" name="" id="naamProduct">
+        <input type="text" name="naamProduct" id="naamProduct">
         </div>
         <div class="form-group">
         <label for="categoryProduct">Category product</label>
-        <input type="text" name="" id="categoryProduct">
+        <input type="text" name="categoryProduct" id="categoryProduct">
         </div>
         <div class="form-group">
         <label for="prijsProduct">Prijs product</label>
-        <input type="text" name="" id="prijsProduct">
+        <input type="text" name="prijsProduct" id="prijsProduct">
         </div>
         <div class="form-group">
         <label for="merkProduct">Merk product</label>
-        <input type="text" name="" id="merkProduct">
+        <input type="text" name="merkProduct" id="merkProduct">
         </div>
 
-        
-
-        
-
-       
-
-        
-        <button type="submit">Verzend</button>
+        <button type="submit">Maak nieuw product</button>
     </form>
     
 </body>
