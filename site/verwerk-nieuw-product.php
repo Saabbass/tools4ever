@@ -11,7 +11,7 @@
     VALUES ('$naam', '$category', '$prijs', '$merk')";
 
     // Voer de INSERT INTO STATEMENT uit
-    if(mysqli_query($conn, $sql))
-    header("location: tools-overzicht.php");
-
+    if(mysqli_query($conn, $sql)){
+        header("location: tools-overzicht.php");
+    }
 ?>
