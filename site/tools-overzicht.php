@@ -48,6 +48,7 @@
             <td><?php echo $tool["tool_category"] ?></td>
             <td><?php echo $tool["tool_price"] ?></td>
             <td><?php echo $tool["tool_brand"] ?></td>
+            <td><a href="tools-detail.php">verdere info</a></td>
         </tbody>
         <?php endforeach; ?>
 
