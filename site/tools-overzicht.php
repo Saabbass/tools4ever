@@ -41,6 +41,7 @@
             <th>tool_category</th>
             <th>tool_price</th>
             <th>tool_brand</th>
+            <th><a href="nieuw-product.php">nieuw product</a></th>
         </thead>
         <?php foreach($all_tools as $tool): ?>
         <tbody>
