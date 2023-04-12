@@ -1,5 +1,8 @@
 body{
     margin: 0 0;
+    background-color: goldenrod;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 table{
@@ -32,5 +35,23 @@ table a{
 table a:hover{
     color: rgb(13, 0, 255);
     text-decoration:underline;
+    
+}
+
+form{
+    margin: 10px;
+}
+
+.form-group{
+    margin: 10px 0px;
+}
+
+label{
+    display: inline-block;
+    width: 125px;
+    margin: 5px;
+}
+
+input{
     
 }
