@@ -9,8 +9,19 @@
 <body>
     <!-- action en method zijn atributen -->
     <form action="submit" method="post">
-        <input type="text" name="w" id="">
+        <!-- for="" is voor het drukken op de naam / label, dan wordt de input automatisch aangetikt -->
+        <label for="naamProduct">Naam product</label>
+        <input type="text" name="" id="naamProduct">
 
+        <label for="categoryProduct">Category product</label>
+        <input type="text" name="" id="categoryProduct">
+
+        <label for="prijsProduct">Prijs product</label>
+        <input type="text" name="" id="prijsProduct">
+        
+        <label for="merkProduct">Merk product</label>
+        <input type="text" name="" id="merkProduct">
+        <button type="submit">Verzend</button>
     </form>
     
 </body>
