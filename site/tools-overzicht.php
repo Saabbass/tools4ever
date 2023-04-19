@@ -42,6 +42,7 @@
             <th>tool_price</th>
             <th>tool_brand</th>
             <th><a href="nieuw-product.php">nieuw product</a></th>
+            <th><a href="nieuw-gebruiker.php">nieuwe gebruiker</a></th>
         </thead>
         <?php foreach($all_tools as $tool): ?>
         <tbody>
