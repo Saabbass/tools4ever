@@ -21,6 +21,17 @@
     $result = mysqli_query($conn, $sql);
 
     $user = mysqli_fetch_assoc($result);
+
+    if(!is_array($user)){
+        echo "Deze gebruiker is bij ons onbekend!";
+        exit;
+    }
+
+    if($_POST['password'] !== $user["password"]){
+        echo 'Deze gebruiker is onbekend of heeft een onjuist wachtword opgegeven';
+        exit;
+        
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
