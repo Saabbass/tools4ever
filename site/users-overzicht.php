@@ -3,7 +3,7 @@
     require 'database.php';
 
     //de sql query
-    $sql = "SELECT * FROM tools";
+    $sql = "SELECT * FROM users";
 
     //hier wordt de query uitgevoerd met de database
     $result = mysqli_query($conn,$sql);
@@ -15,7 +15,7 @@
      * voor bijvoorbeeld producten $all_products heten.
      * Maar dit kies je zelf
      */
-    $all_tools = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $all_users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -36,22 +36,26 @@
     */ -->
     <table>
         <thead>
-            <th>tool_id</th>
-            <th>tool_name</th>
-            <th>tool_category</th>
-            <th>tool_price</th>
-            <th>tool_brand</th>
-            <th><a href="nieuw-product.php">nieuw product</a></th>
-            <th><a href="users-overzicht.php">gebruikers</a></th>
+            <th>user_id</th>
+            <th>firstname</th>
+            <th>lastname</th>
+            <th>email</th>
+            <th>address</th>
+            <th>city</th>
+            <th>role</th>
+            <th><a href="nieuw-gebruiker.php">nieuwe gebruiker</a></th>
+            <th><a href="tool-overzicht.php">product overzicht</a></th>
         </thead>
-        <?php foreach($all_tools as $tool): ?>
+        <?php foreach($all_users as $user): ?>
         <tbody>
-            <td><?php echo $tool["tool_id"] ?></td>
-            <td><?php echo $tool["tool_name"] ?></td>
-            <td><?php echo $tool["tool_category"] ?></td>
-            <td>&euro; <?php echo $tool["tool_price"] ?></td>
-            <td><?php echo $tool["tool_brand"] ?></td>
-            <td><a href="tools-detail.php?id=<?php echo $tool['tool_id']?>">verdere info</a></td>
+            <td><?php echo $user["id"] ?></td>
+            <td><?php echo $user["firstname"] ?></td>
+            <td><?php echo $user["lastname"] ?></td>
+            <td><?php echo $user["email"] ?></td>
+            <td><?php echo $user["address"] ?></td>
+            <td><?php echo $user["city"] ?></td>
+            <td><?php echo $user["role"] ?></td>
+            <td><a href="users-detail.php?id=<?php echo $user['id']?>">verdere info</a></td>
         </tbody>
         <?php endforeach; ?>
 
