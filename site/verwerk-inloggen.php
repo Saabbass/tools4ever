@@ -2,38 +2,95 @@
 
     require 'database.php';
 
-    function validate($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
+    if($_SERVER['REQUEST_METHOD'] !== 'POST'){
+        header($_SERVER["SERVER_PROTOCOL"] . "405 Method Not Allowed", true, 405);
+        include '405.php';
+        exit;
     }
 
-    $email = validate($_POST['email']);
-    $pass = validate($_POST['password']);
+    //We controleren of de key email in de POST-array bestaat
+    if(!isset($_POST['email'])){
+        header("location: inloggen.php");
+        exit;
+    }
 
-    // $email = $_POST['email'];
-    // $pass = $_POST['password'];
+    //daarna controleren we of het emailadres is ingevuld (dus niet leeg)
+    if(empty($_POST['email'])){
+        header("location: inloggen.php");
+        exit;
+    }
 
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$pass'";
+    //dan komt hier de rest van de code..
 
+    //het eerste input field met een name attribuut 'email'
+    $email = $_POST['email'];
+
+    //we hebben een database connctie nodig
+    require 'database.php';
+    //we gaan nu het emailadres dat is ingevuld vergeiljken met de waardes in de database.
+
+    $sql = "SELECT * FROM users WHERE email = '$email'"; // check de single-qoutes naast email
+
+    //dan voeren we de query uit:
     $result = mysqli_query($conn, $sql);
 
     $user = mysqli_fetch_assoc($result);
 
-    if(!is_array($user)){
-        echo "Deze gebruiker is bij ons onbekend!";
-        exit;
+
+
+    if($user['password'] === $_POST['password']){
+        session_start();
+        $_SESSION['isIngelogd'] = true;
+        $_SESSION['voornaam'] = $user['firstname'];
+
+        header("location: dashboard.php");
     }
 
+    //We controleren of de key email in de POST-array bestaat
     if($_POST['password'] !== $user["password"]){
-        echo 'Deze gebruiker is onbekend of heeft een onjuist wachtword opgegeven';
+        header("location: inloggen.php");
         exit;
         
     }
+
+    //daarna controleren we of het emailadres is ingevuld (dus niet leeg)
+    if(empty($_POST['password'])){
+        header("location: inloggen.php");
+        exit;
+    }
+
+    // function validate($data)
+    // {
+    //     $data = trim($data);
+    //     $data = stripslashes($data);
+    //     $data = htmlspecialchars($data);
+    //     return $data;
+    // }
+
+    // $email = validate($_POST['email']);
+    // $pass = validate($_POST['password']);
+
+    // // $email = $_POST['email'];
+    // // $pass = $_POST['password'];
+
+    // $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$pass'";
+
+    // $result = mysqli_query($conn, $sql);
+
+    // $user = mysqli_fetch_assoc($result);
+
+    // if(!is_array($user)){
+    //     echo "Deze gebruiker is bij ons onbekend!";
+    //     exit;
+    // }
+
+    // if($_POST['password'] !== $user["password"]){
+    //     echo 'Deze gebruiker is onbekend of heeft een onjuist wachtword opgegeven';
+    //     exit;
+        
+    // }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,4 +103,4 @@
         Welkom <?php echo $user['firstname']; ?>
     </h1>
 </body>
-</html>
+</html> -->
