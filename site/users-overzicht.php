@@ -44,7 +44,7 @@
             <th>city</th>
             <th>role</th>
             <th><a href="nieuw-gebruiker.php">nieuwe gebruiker</a></th>
-            <th><a href="tool-overzicht.php">product overzicht</a></th>
+            <th><a href="tools-overzicht.php">product overzicht</a></th>
         </thead>
         <?php foreach($all_users as $user): ?>
         <tbody>
@@ -61,7 +61,5 @@
 
     </table>
 
-
-    
 </body>
 </html>

@@ -36,9 +36,12 @@ $result = mysqli_query($conn, $sql);
 
 $user = mysqli_fetch_assoc($result);
 
+if(!is_array($user)){
+    header("location: inloggen.php");
+    exit;
+}
 
-
-if ($user['password'] === $_POST['password']) {
+if (password_verify($_POST['password'], $user['password'])) {
     session_start();
     $_SESSION['isIngelogd'] = true;
     $_SESSION['voornaam'] = $user['firstname'];
@@ -131,7 +134,6 @@ if (empty($_POST['password'])) {
 <body>
     <h1>
         Welkom 
-        <?php echo $user['firstname']; ?>
     </h1>
 </body>
 </html> -->
