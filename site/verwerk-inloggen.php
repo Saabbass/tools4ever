@@ -46,6 +46,7 @@ if (password_verify($_POST['password'], $user['password'])) {
     $_SESSION['isIngelogd'] = true;
     $_SESSION['voornaam'] = $user['firstname'];
     $_SESSION['role'] = $user['role'];
+    $_SESSION['id'] = $user['id'];
 
     // if ($user['role'] == 'administrator') {
     //     header("location: admin-dashboard.php");
